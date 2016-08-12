@@ -15,16 +15,16 @@
 public class one_Edit_Distance {
     public boolean isOneEditDistance(String s, String t) {
         int m = s.length(), n = t.length();
-        // length > 1
         if (Math.abs(m-n) > 1) return false;
-        // always m <= n
         if (m > n) return isOneEditDistance(t, s);
         int i = 0;
-        while (i < m && s.charAt(i) == t.charAt(i)) i++;
-        // shift = 0 ==> editted | shift = 1 ==> added
+        while (i < m && s.charAt(i) == t.charAt(i)) ++i;
         int shift = n-m;
-        if (shift > 0) ++i;
-        while (i < m && s.charAt(i) == t.charAt(i+shift)) i++;
+        if (shift == 0) {
+            if (i == m) return false;
+            ++i;
+        }
+        while (i < m && s.charAt(i) == t.charAt(i+shift)) ++i;
         return i == m;
     }
 }
