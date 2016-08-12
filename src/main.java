@@ -3,7 +3,7 @@
  */
 public class main {
     public static void main(String[] args) {
-        longest_substring_at_most_two_distinct_char s = new longest_substring_at_most_two_distinct_char();
-        System.out.print(s.lengthOfLongestSubstringTwoDistinct("abc"));
+        one_Edit_Distance s = new one_Edit_Distance();
+        System.out.print(s.isOneEditDistance("", ""));
     }
 }
