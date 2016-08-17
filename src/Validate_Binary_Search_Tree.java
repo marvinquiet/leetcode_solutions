@@ -28,17 +28,20 @@ public class Validate_Binary_Search_Tree {
 //                && isValidBST(root.right, root.val, high);
 //    }
 
+    TreeNode prev = null;
+    public boolean isValidBST(TreeNode root) {
+        prev = null;
+        return isIncreasing(root);
+    }
 
-    private boolean isValidBST(TreeNode root) {
+    private boolean isIncreasing(TreeNode root) {
         if (root == null) return true;
-        Stack<TreeNode> nodeStack = new Stack<TreeNode>();
-        nodeStack.push(root);
-        while (nodeStack != null) {
-            TreeNode node = nodeStack.pop();
-            if (node.left != null) {
-                
-            }
 
+        if (isIncreasing(root.left)) {
+            if (prev != null && prev.val >= root.val) return false;
+            prev = root;
+            return isIncreasing(root.right);
         }
+        return false;
     }
 }
