@@ -16,5 +16,7 @@ public class Clone_Graph {
     public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
         HashMap<Integer, Integer> map = new HashMap<>();
 
+        return null;
+
     }
 }
